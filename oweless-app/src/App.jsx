@@ -887,9 +887,9 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 font-sans selection:bg-indigo-100 selection:text-indigo-900 flex justify-center">
+    <div className="h-full bg-slate-100 font-sans selection:bg-indigo-100 selection:text-indigo-900 flex justify-center">
       {/* Mobile Container wrapper to simulate phone on desktop */}
-      <div className="w-full max-w-md bg-slate-50 min-h-screen relative shadow-2xl sm:border-x sm:border-slate-200 overflow-hidden flex flex-col">
+      <div className="w-full max-w-md h-full bg-slate-50 relative shadow-2xl sm:border-x sm:border-slate-200 overflow-hidden flex flex-col">
         
         {/* Splash Screen Overlay */}
         {showSplash && (
@@ -906,7 +906,7 @@ export default function App() {
         )}
 
         {/* Main Content Area */}
-        <div className="flex-1 overflow-y-auto px-5 pt-8 pb-24 scroll-smooth">
+        <div className="min-h-0 flex-1 overflow-y-auto overscroll-y-contain px-5 pt-8 pb-24 scroll-smooth">
           {activeTab === 'home' && renderHome()}
           {activeTab === 'loans' && renderLoans()}
           {activeTab === 'strategy' && renderStrategy()}
@@ -922,7 +922,7 @@ export default function App() {
         </button>
 
         {/* Bottom Navigation Bar */}
-        <div className="absolute bottom-0 w-full bg-white/80 backdrop-blur-md border-t border-slate-200 px-6 py-4 pb-safe flex justify-between items-center z-40">
+        <div className="safe-bottom absolute bottom-0 w-full bg-white/80 backdrop-blur-md border-t border-slate-200 px-6 py-4 flex justify-between items-center z-40">
           <button 
             onClick={() => setActiveTab('home')}
             className={`flex flex-col items-center space-y-1 transition-colors ${activeTab === 'home' ? 'text-indigo-600' : 'text-slate-400 hover:text-slate-600'}`}
